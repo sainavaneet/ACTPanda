@@ -14,4 +14,7 @@ chmod +x setup.sh
 ./setup.sh
 
 
-adadadaldgaldabd
+#Launch the environment
+```bash
+roslaunch src/panda_simulator/panda_gazebo/launch/pick_and_place.launch
+
