@@ -1,24 +1,14 @@
 # ACTPanda Installation Guide
 
-Welcome to the ACTPanda repository! This guide will help you set up the project environment on your local machine.
+```bash
+# Clone the repository
+git clone https://github.com/sainavaneet/ACTPanda.git
 
-## Prerequisites
+# Change directory to the cloned repository
+cd ACTPanda/
 
-Before you begin the setup, make sure to install ROS (Robot Operating System) if it's not already installed on your system.
- For installation instructions tailored to different operating systems, visit the [ROS Installation Page](http://wiki.ros.org/ROS/Installation).
+# Make the setup script executable
+chmod +x setup.sh
 
-## Setup Instructions
-
-1. **Clone the Repository**  
-   Start by cloning the ACTPanda repository to your local machine. Open a terminal and run the following command:
-  ```
-   git clone https://github.com/sainavaneet/ACTPanda.git
-   ```
-
-2. **Navigate to the ACTPanda Directory**  
-   After cloning, change into the ACTPanda directory:
-   ```
-   cd ACTPanda/
-   chmod +x setup.sh
-   ./setup.sh
-   ```
+# Run the setup script
+./setup.sh
