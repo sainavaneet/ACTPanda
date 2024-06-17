@@ -7,7 +7,7 @@ import torch
 
 
 # checkpoint directory
-CHECKPOINT_DIR = 'checkpoints/task1/task2/'
+CHECKPOINT_DIR = 'checkpoints/'
 
 # device
 device = 'cpu'
@@ -15,7 +15,7 @@ if torch.cuda.is_available(): device = 'cuda'
 #if torch.backends.mps.is_available(): device = 'mps'
 os.environ['DEVICE'] = device
 
-DATASET_DIR = "/home/navaneet/Desktop/ACT_NAVANEET/data/"
+DATASET_DIR = "dataset/"
 
 DATA_DIR = DATASET_DIR
 
