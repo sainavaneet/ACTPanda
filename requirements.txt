@@ -1,4 +1,5 @@
 h5py
+pybind11
 tqdm
 mujoco
 pyyaml
