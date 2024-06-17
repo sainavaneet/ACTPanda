@@ -10,7 +10,7 @@ from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QTimer
 from sensor_msgs.msg import Image
 from panda_robot import PandaArm
-from constants import DATASET_DIR
+from utils.config.config import *
 
 class CameraController:
     def __init__(self, panda_arm):

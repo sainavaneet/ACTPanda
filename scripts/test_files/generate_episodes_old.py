@@ -15,7 +15,8 @@ from panda_kinematics import PandaWithPumpKinematics
 from franka_interface import GripperInterface
 from gazebo_msgs.srv import SetModelState, SetModelStateRequest
 from std_srvs.srv import Empty
-from constants import INITIAL_JOINTS, DATASET_DIR
+from utils.config.config import *
+
 from gazebo_msgs.srv import GetModelState, GetModelStateRequest
 
 class CameraController:

@@ -6,7 +6,8 @@ from std_srvs.srv import Empty
 from panda_robot import PandaArm
 from panda_kinematics import PandaWithPumpKinematics
 from franka_interface import GripperInterface
-from constants import INITIAL_JOINTS
+from utils.config.config import *
+
 
 class PandaRobotTask:
     def __init__(self):
