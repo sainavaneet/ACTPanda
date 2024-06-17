@@ -7,7 +7,7 @@ import torch
 
 
 # checkpoint directory
-CHECKPOINT_DIR = 'checkpoints/'
+CHECKPOINT_DIR = 'checkpoints/task1/task2/'
 
 # device
 device = 'cpu'
@@ -15,7 +15,7 @@ if torch.cuda.is_available(): device = 'cuda'
 #if torch.backends.mps.is_available(): device = 'mps'
 os.environ['DEVICE'] = device
 
-DATASET_DIR = "dataset/"
+DATASET_DIR = "/home/navaneet/Desktop/ACT_NAVANEET/data/"
 
 DATA_DIR = DATASET_DIR
 
@@ -34,7 +34,6 @@ TOTAL_EPISODES = 50
 BOX_Z = 0.025
 
 
-# task config (you can add new tasks)
 TASK_CONFIG = {
     'dataset_dir': DATA_DIR,
     'episode_len': 390,

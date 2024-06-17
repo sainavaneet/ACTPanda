@@ -15,7 +15,7 @@ from panda_kinematics import PandaWithPumpKinematics
 from franka_interface import GripperInterface
 from gazebo_msgs.srv import SetModelState, SetModelStateRequest
 from std_srvs.srv import Empty
-from config.config import *
+from utils.config.config import *
 from gazebo_msgs.srv import GetModelState, GetModelStateRequest
 from threading import Lock
 

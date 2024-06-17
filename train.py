@@ -114,18 +114,18 @@ def train_bc(train_dataloader, val_dataloader, policy_config):
     
 
 if __name__ == '__main__':
-    # set seed
+    
     set_seed(train_cfg['seed'])
-    # create ckpt dir if not exists
+    
     os.makedirs(checkpoint_dir, exist_ok=True)
-   # number of training episodes
+   
     data_dir = os.path.join(task_cfg['dataset_dir'], task)
     num_episodes = len(os.listdir(data_dir))
 
-    # load data
+
     train_dataloader, val_dataloader, stats, _ = load_data(data_dir, num_episodes, task_cfg['camera_names'],
                                                             train_cfg['batch_size_train'], train_cfg['batch_size_val'])
-    # save stats
+
     stats_path = os.path.join(checkpoint_dir, f'dataset_stats.pkl')
     with open(stats_path, 'wb') as f:
         pickle.dump(stats, f)
