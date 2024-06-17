@@ -14,6 +14,21 @@ chmod +x setup.sh
 ./setup.sh
 
 
+#install Panda_kinematics
+
+cd ~/ACTPanda/
+
+git clone https://github.com/roboticsleeds/panda_ik.git
+
+cd panda_ik
+
+chmod +x build.sh
+
+./build.sh
+
+
+
+
 #Launch the environment
 
 roslaunch src/panda_simulator/panda_gazebo/launch/pick_and_place.launch
