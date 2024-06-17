@@ -45,7 +45,7 @@ DISTRO=noetic
 if ! command -v catkin &> /dev/null; then
     echo "Catkin tools not found, installing them..."
     sudo apt-get update
-    sudo apt-get install python-catkin-tools
+    sudo apt-get install python-catkin-tools  # Adjust python3-catkin-tools for newer distributions
 else
     echo "Catkin tools are installed."
 fi
@@ -55,7 +55,26 @@ echo "Initializing rosdep..."
 sudo rosdep init
 rosdep update
 
+# Ensure gdown is installed for downloading files from Google Drive
+if ! command -v gdown &> /dev/null; then
+    echo "Installing gdown..."
+    pip install gdown
+fi
+
 cd panda_simulator/
+
+# Download src.zip from Google Drive
+echo "Downloading src.zip from Google Drive..."
+gdown "https://drive.google.com/uc?id=1yIaI9Ndl1dIDdq8fLU3-7SlktDi84qVf" -O src.zip
+
+# Unzipping src.zip before proceeding
+if [ -f src.zip ]; then
+    echo "Extracting src.zip..."
+    unzip src.zip -d .
+    echo "Extraction complete."
+else
+    echo "src.zip not found."
+fi
 
 echo "Installing dependencies with rosdep..."
 rosdep install --from-paths src --ignore-src --rosdistro $DISTRO
@@ -63,7 +82,6 @@ rosdep install --from-paths src --ignore-src --rosdistro $DISTRO
 # Build the workspace using catkin
 echo "Building the workspace with catkin build..."
 catkin build
-
 
 if grep -Fxq "source ~/panda_simulator/devel/setup.bash" ~/.bashrc; then
     echo "Source already added to .bashrc"
@@ -73,3 +91,4 @@ else
 fi
 
 echo "Setup complete."
+
