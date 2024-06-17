@@ -19,12 +19,6 @@ Before you begin the setup, make sure to install ROS (Robot Operating System) if
    After cloning, change into the ACTPanda directory:
    ```
    cd ACTPanda/
-   ```
-
-3. **Run the Setup Script**  
-   Execute the setup script to install all necessary dependencies and configure your environment. In your terminal, run:
-   ```
+   chmod +x setup.sh
    ./setup.sh
    ```
-   Make sure you have the necessary permissions to execute the script (you might need to use `chmod +x setup.sh` if the script is not executable).
-
