@@ -12,3 +12,6 @@ chmod +x setup.sh
 
 # Run the setup script
 ./setup.sh
+
+
+adadadaldgaldabd
