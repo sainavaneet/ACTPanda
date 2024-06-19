@@ -7,8 +7,8 @@ import cv2
 import pickle
 import pandas as pd
 from panda_robot import PandaArm
-from training.utils import *
-from config.config import POLICY_CONFIG, TASK_CONFIG, TRAIN_CONFIG
+from utils.training.utils import *
+from utils.config.config import POLICY_CONFIG, TASK_CONFIG, TRAIN_CONFIG
 from tqdm import tqdm
 
 # Image processing and handling
