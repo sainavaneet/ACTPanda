@@ -32,14 +32,7 @@ if ! rosdep init && rosdep update; then
     exit 1
 fi
 
-# Install gdown for Google Drive downloads
-if ! command -v gdown &> /dev/null; then
-    echo "Installing gdown..."
-    if ! pip3 install gdown; then
-        echo "Failed to install gdown."
-        exit 1
-    fi
-fi
+
 
 # Ensure the panda_simulator directory exists
 if [ ! -d "panda_simulator" ]; then
