@@ -20,8 +20,7 @@ echo "Using Python at $PYTHON"
 
 echo "Checking for pip..."
 
-if ! command -v pip3 &> /dev/null
-then
+if ! command -v pip3 &> /dev/null; then
     echo "pip could not be found, installing pip..."
     apt-get update && apt-get install python3-pip -y
     if [ $? -ne 0 ]; then
@@ -72,7 +71,7 @@ fi
 
 # Initialize rosdep safely
 echo "Initializing rosdep..."
-if ! sudo rosdep init && rosdep update; then
+if ! rosdep init && rosdep update; then
     echo "Failed to initialize or update rosdep."
     exit 1
 fi
@@ -86,6 +85,7 @@ if ! command -v gdown &> /dev/null; then
     fi
 fi
 
+# Ensure the panda_simulator directory exists
 if [ ! -d "panda_simulator" ]; then
   mkdir panda_simulator
 fi
@@ -111,8 +111,19 @@ else
     exit 1
 fi
 
+# Detect ROS distribution dynamically if not set
+if [ -z "$ROS_DISTRO" ]; then
+    ROS_DISTRO=$(source /opt/ros/*/setup.bash && echo $ROS_DISTRO)
+    if [ -z "$ROS_DISTRO" ]; then
+        echo "ROS distribution not found."
+        exit 1
+    fi
+fi
+
+echo "ROS distribution: $ROS_DISTRO"
+
 echo "Installing dependencies with rosdep..."
-if ! rosdep install --from-paths src --ignore-src --rosdistro $DISTRO; then
+if ! rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO; then
     echo "Failed to install dependencies with rosdep."
     exit 1
 fi
