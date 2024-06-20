@@ -1,6 +1,6 @@
 ### Note:
 
-- Make sure to install ROS first
+-  Make sure to install ROS first
 
 ```markdown
 # ACTPanda Installation Guide
