@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 # Enforce running the script with superuser privileges
 if [[ $EUID -ne 0 ]]; then
