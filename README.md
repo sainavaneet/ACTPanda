@@ -1,8 +1,14 @@
 # ACTPanda Installation Guide
 
+
+
+#### Note :
 ```markdown
-## Make sure to install ROS first
+- Make sure to install ROS first
+- install all required python packages form `pip install -r requirments.txt`
 ```
+
+## Clone The Repo
 ```bash
 # Clone the repository
 git clone https://github.com/sainavaneet/ACTPanda.git
