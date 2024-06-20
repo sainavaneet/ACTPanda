@@ -1,4 +1,6 @@
-Here is the updated code with the image inclusion and corrected formatting:
+### Note:
+
+- Make sure to install ROS first
 
 ```markdown
 # ACTPanda Installation Guide
@@ -42,7 +44,3 @@ roslaunch src/panda_simulator/panda_gazebo/launch/pick_and_place.launch
 ![Environment Image](https://github.com/sainavaneet/ACTPanda/raw/main/results/env.jpg)
 ```
 
-### Note:
-
-- Make sure the URL for the image is correct.
-- The code blocks are separated by triple backticks for clarity.
