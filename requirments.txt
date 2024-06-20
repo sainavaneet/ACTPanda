@@ -2,6 +2,7 @@ h5py
 pybind11
 tqdm
 pyyaml
+gdown
 rospkg
 einops
 mediapy
