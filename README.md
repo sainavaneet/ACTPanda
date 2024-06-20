@@ -1,9 +1,7 @@
-### Note:
-
--  Make sure to install ROS first
+# ACTPanda Installation Guide
 
 ```markdown
-# ACTPanda Installation Guide
+## Make sure to install ROS first
 
 ```bash
 # Clone the repository
