@@ -31,3 +31,7 @@ chmod +x build.sh
 
 roslaunch src/panda_simulator/panda_gazebo/launch/pick_and_place.launch
 
+##ENVIRONMENT SETUP
+
+![Environment Image](https://github.com/sainavaneet/ACTPanda/raw/main/results/env.jpg)
+
