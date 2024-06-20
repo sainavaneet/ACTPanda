@@ -3,7 +3,7 @@
 ```markdown
 ## Make sure to install ROS first
 
-```bash
+
 # Clone the repository
 git clone https://github.com/sainavaneet/ACTPanda.git
 
