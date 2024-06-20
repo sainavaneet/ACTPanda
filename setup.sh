@@ -60,7 +60,7 @@ fi
 # Install catkin tools
 if ! command -v catkin &> /dev/null; then
     echo "Catkin tools not found, installing them..."
-    apt-get install python-catkin-tools -y  # Adjust python3-catkin-tools for newer distributions
+    pip3 install catkin-tools -y  # Adjust python3-catkin-tools for newer distributions
     if [ $? -ne 0 ]; then
         echo "Failed to install Catkin tools."
         exit 1
