@@ -31,7 +31,7 @@ chmod +x build.sh
 ./build.sh
 ```
 
- **Launch the environment**
+**Launch the environment**
 
 ```bash
 roslaunch src/panda_simulator/panda_gazebo/launch/pick_and_place.launch
