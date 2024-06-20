@@ -15,6 +15,7 @@ opencv-python
 dynamixel-sdk
 torchvision
 torch
+catkin-tools
 mujoco==2.3.7
 dm_control==1.0.14
 git+https://github.com/sainavaneet/detr.git
