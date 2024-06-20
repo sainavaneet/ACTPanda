@@ -86,6 +86,10 @@ if ! command -v gdown &> /dev/null; then
     fi
 fi
 
+if [ ! -d "panda_simulator" ]; then
+  mkdir panda_simulator
+fi
+
 cd panda_simulator/ || { echo "Failed to change directory to panda_simulator/"; exit 1; }
 
 # Handle Google Drive download and extraction more robustly
