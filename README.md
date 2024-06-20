@@ -19,9 +19,9 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-```bash
-# Install Panda_kinematics
 
+## Install Panda_kinematics
+```bash
 cd ~/ACTPanda/
 
 git clone https://github.com/roboticsleeds/panda_ik.git
