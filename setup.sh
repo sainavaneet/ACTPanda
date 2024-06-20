@@ -1,6 +1,30 @@
 #!/bin/bash
 
 
+# Detect Python site-packages directory
+SITE_PACKAGES=$($PYTHON -c 'import site; print(site.getsitepackages()[0])')
+
+echo "Python site-packages directory: $SITE_PACKAGES"
+
+# Check and move detr folder if needed
+if [ -d "$SITE_PACKAGES/detr" ]; then
+    echo "'detr' folder already exists in the site-packages. Replacing..."
+    if rm -rf "$SITE_PACKAGES/detr" && mv detr "$SITE_PACKAGES/detr"; then
+        echo "Replacement complete."
+    else
+        echo "Failed to replace 'detr' folder."
+        exit 1
+    fi
+else
+    echo "Moving 'detr' folder to site-packages..."
+    if mv detr "$SITE_PACKAGES/detr"; then
+        echo "Move complete."
+    else
+        echo "Failed to move 'detr' folder."
+        exit 1
+    fi
+fi
+
 # Initialize rosdep safely
 echo "Initializing rosdep..."
 if ! rosdep init && rosdep update; then
