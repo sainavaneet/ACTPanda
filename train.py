@@ -10,7 +10,7 @@ from utils.training.utils import *
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--task', type=str, default='pick_and_place')
+parser.add_argument('--task', type=str, default='')
 args = parser.parse_args()
 task = args.task
 

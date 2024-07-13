@@ -7,7 +7,7 @@ import torch
 
 
 # checkpoint directory
-CHECKPOINT_DIR = 'checkpoints/task1/task2/'
+CHECKPOINT_DIR = 'checkpoints/'
 
 # device
 device = 'cpu'
@@ -15,7 +15,7 @@ if torch.cuda.is_available(): device = 'cuda'
 #if torch.backends.mps.is_available(): device = 'mps'
 os.environ['DEVICE'] = device
 
-DATASET_DIR = "/home/navaneet/Desktop/ACT_NAVANEET/data/"
+DATASET_DIR = "/home/navaneet/Desktop/ACTPanda/processed_data"
 
 DATA_DIR = DATASET_DIR
 
@@ -36,7 +36,7 @@ BOX_Z = 0.025
 
 TASK_CONFIG = {
     'dataset_dir': DATA_DIR,
-    'episode_len': 390,
+    'episode_len': 400,
     'state_dim': 8,
     'action_dim': 8,
     'cam_width': 640,
@@ -51,7 +51,7 @@ POLICY_CONFIG = {
     'lr': 1e-5,
     'device': device,
     'num_queries': 100,
-    'kl_weight': 10,
+    'kl_weight': 100,
     'hidden_dim': 512,
     'dim_feedforward': 3200,
     'lr_backbone': 1e-5,
@@ -67,7 +67,7 @@ POLICY_CONFIG = {
 # training config
 TRAIN_CONFIG = {
     'seed': 42,
-    'num_epochs': 2000,
+    'num_epochs': 10000,
     'batch_size_val': 8,
     'batch_size_train': 8,
     'eval_ckpt_name': 'policy_last.ckpt',

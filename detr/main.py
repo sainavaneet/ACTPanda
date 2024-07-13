@@ -9,7 +9,8 @@ from .models import build_ACT_model, build_CNNMLP_model
 
 import IPython
 e = IPython.embed
-device = os.environ['DEVICE']
+device = 'cpu'
+if torch.cuda.is_available(): device = 'cuda'
 
 def get_args_parser():
     parser = argparse.ArgumentParser('Set transformer detector', add_help=False)

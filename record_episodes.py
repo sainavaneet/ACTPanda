@@ -33,15 +33,19 @@ class CameraController:
         self.recording = False
         self.gripper_width = OPEN_GRIPPER_POSE
         self.box_positions = []
+        self.frame_count = 0
 
     def image_callback(self, msg):
-        if self.recording: 
-            cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-            self.current_frame = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
-            self.data.append(self.current_frame)
-            joint_angles = list(self.panda_arm.angles(include_gripper=False))
-            joint_angles.append(self.gripper_width)  
-            self.joint_positions.append(joint_angles)
+        if self.recording:
+            # Skip frames to reduce rate
+            self.frame_count += 1
+            if self.frame_count % 2 == 0:  # Adjust the modulus value based on desired rate
+                self.current_frame = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+                self.data.append(self.current_frame)
+                joint_angles = list(self.panda_arm.angles(include_gripper=False))
+                joint_angles.append(self.gripper_width)  
+                self.joint_positions.append(joint_angles)
+
 
     def start_recording(self):
         self.recording = True
@@ -66,13 +70,12 @@ class CameraController:
             file.write(f'Failed Position - X: {x}, Y: {y}, Z: {z}\n')
 
     def save_data(self):
-        target_length = 390  
-
+        target_length = 250  
         if not self.data:
             print("No data to save, skipping... this episode")
             return
 
-        # Truncate or pad data to match the target_length
+        # # Truncate or pad data to match the target_length
         self.data = (self.data[:target_length] if len(self.data) > target_length
                      else self.data + [self.data[-1]] * (target_length - len(self.data)))
         self.joint_positions = (self.joint_positions[:target_length] if len(self.joint_positions) > target_length
@@ -181,7 +184,7 @@ class PandaRobotTask:
                 print("<>"*TOTAL_EPISODES)
 
 
-            # self.new_x, self.new_y = 0.3 + random.uniform(0, 0.2), 0.5 + random.uniform(-0.2, 0)
+            self.new_x, self.new_y = 0.3 + random.uniform(0, 0.2), 0.5 + random.uniform(-0.2, 0)
             self.set_box_position(self.new_x, self.new_y, BOX_Z)
             self.panda_arm.move_to_joint_position(self.initial_positions)
 

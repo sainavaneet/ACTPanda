@@ -1,8 +1,9 @@
 h5py
 pybind11
-tqdm
-pyyaml
 gdown
+tqdm
+mujoco
+pyyaml
 rospkg
 einops
 mediapy

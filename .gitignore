@@ -4,3 +4,5 @@
 *.ckpt
 setup.sh
 panda_simulator/src.zip
+*.pyc
+*.pyc

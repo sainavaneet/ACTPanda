@@ -8,7 +8,7 @@ import pickle
 import pandas as pd
 from panda_robot import PandaArm
 from utils.training.utils import *
-from utils.config.config import POLICY_CONFIG, TASK_CONFIG, TRAIN_CONFIG
+from utils.config.config import *
 from tqdm import tqdm
 
 # Image processing and handling
@@ -17,7 +17,6 @@ bridge = CvBridge()
 def image_callback(msg):
     try:
         cv_image = bridge.imgmsg_to_cv2(msg, "bgr8")  # Convert ROS Image message to OpenCV image (BGR format)
-        cv_image_bgr = cv2.cvtColor(cv_image, cv2.COLOR_RGB2BGR)
     except CvBridgeError as e:
         rospy.logerr(e)
     return cv_image
@@ -54,7 +53,7 @@ if __name__ == "__main__":
     pre_process = lambda pos: (pos - stats['qpos_mean']) / stats['qpos_std']
     post_process = lambda act: act * stats['action_std'] + stats['action_mean']
 
-    num_rollouts = 4
+    num_rollouts = 1
     for _ in range(num_rollouts):
         obs_replay = []
         action_replay = []
@@ -77,7 +76,7 @@ if __name__ == "__main__":
             action_tensor = policy(pos_tensor, image_tensor)
             actions = post_process(action_tensor.detach().cpu().numpy())
             # print(actions.shape)
-            actions = actions.reshape(100, 8)  # Adjust shape according to your setup
+            
 
             # Save actions to CSV
         df = pd.DataFrame(actions)
