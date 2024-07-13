@@ -20,7 +20,6 @@ cd ACTPanda/
 chmod +x setup.sh
 
 # Run the setup script
-./setup.sh
 ```
 
 
